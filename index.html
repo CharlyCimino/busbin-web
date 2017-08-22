@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+</head>
+<body>
+
+	<div class="caja izquierda">
+		<img id="imagenGenio" src="img/pensando.png">
+		<p>(Cambiar al genio. Este es Akinator)</p>
+	</div>
+
+	<div class="caja derecha">
+		<div class="instrucciones">
+			<h1>Adiviná el número</h1>
+			<p>Acabo de pensar un número al azar entre 1 y 99. ¿Serás capaz de adivinarlo en menos de 10 intentos?</p>
+		</div>
+		<p class="destacado2" id="resultado">Esperando...</p>
+		<div class="interfaz">
+			<input class="destacado" id="entradaDelUsuario">
+			<br>
+			<button onclick="adivinar()" class="destacado" id="botonAdivinar">ADIVINAR</button>
+		</div>
+		<p class="destacado3" id="contadorIntentos">Te quedan 10 intentos</p>
+	</div>
+
+	<div class="caja pie">Desarrollado por <img src="img/logoHorizontal.png"></div>
+
+<script type="text/javascript" src="js/logica.js"></script>
+</body>
+</html>
