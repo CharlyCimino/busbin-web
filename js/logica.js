@@ -8,7 +8,7 @@ var cuadroRojo = document.getElementById("contadorIntentos");
 var genio = document.getElementById("imagenGenio");
 var boton = document.getElementById("botonAdivinar");
 
-intentos = 10;
+intentos = 7;
 numeroSecreto = Math.floor( Math.random() * 99 ) + 1;
 entrada.maxlength = 2;
 
