@@ -30,7 +30,7 @@ function adivinar ()
 			entrada.disabled = true;
 			genio.src = "img/triste.png";
 			cuadroAzul.innerText = ("Me ganaste ! El numero era: " + numeroSecreto);
-			cuadroRojo.innerText = ("Adivinaste en " + (11-intentos) +" intentos.");
+			cuadroRojo.innerText = ("Adivinaste en " + (8-intentos) +" intentos.");
 		}
 		else // POR DESCARTE, NO ADIVINO
 		{
