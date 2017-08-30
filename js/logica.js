@@ -9,7 +9,7 @@ var genio = document.getElementById("imagenGenio");
 var boton = document.getElementById("botonAdivinar");
 
 intentos = 7;
-numeroSecreto = Math.floor( Math.random() * 99 ) + 1;
+numeroSecreto = Math.floor( Math.random() * 100 ) + 1;
 entrada.maxlength = 2;
 
 function adivinar ()
@@ -22,7 +22,7 @@ function adivinar ()
 	{
 		if ( isNaN( numeroIngresado ) ) // PUSO CUALQUIER COSA
 		{
-			cuadroAzul.innerText = ("Eso no es un número ¬¬");
+			cuadroAzul.innerText = "Eso no es un número ¬¬";
 		}
 		else if (numeroSecreto == numeroIngresado)  // ADIVINO
 		{
@@ -34,23 +34,35 @@ function adivinar ()
 		}
 		else // POR DESCARTE, NO ADIVINO
 		{
-			intentos = intentos - 1; // intentos--;
-			cuadroRojo.innerText = ("Te quedan " + intentos + " intentos");
+			if (intentos == 1) 
+			{
+				perder();
+			}
+			else
+			{
+				intentos = intentos - 1; // intentos--;
+				cuadroRojo.innerText = ("Te quedan " + intentos + " intentos");
 
-			if (numeroSecreto > numeroIngresado )
-			{
-				cuadroAzul.innerText = ("Te quedaste cortina, pensé un número más alto");
-			} 
-			else 
-			{
-				cuadroAzul.innerText = ("Te pasaste, pensé un número más bajo");
+				if (numeroSecreto > numeroIngresado )
+				{
+					cuadroAzul.innerText = ("Te quedaste cortina, pensé un número más alto");
+				} 
+				else 
+				{
+					cuadroAzul.innerText = ("Te pasaste, pensé un número más bajo");
+				}
 			}
 		}
 	}
 	else // SE QUEDO SIN INTENTOS
 	{
-		genio.src = "img/feliz.png";
-		cuadroAzul.innerText = ("Te gané ! El numero era: " + numeroSecreto);
-		cuadroRojo.innerText = ("Te quedaste sin intentos");
+		perder();
 	}
+}
+
+function perder()
+{
+	genio.src = "img/feliz.png";
+	cuadroAzul.innerText = ("Te gané ! El numero era: " + numeroSecreto);
+	cuadroRojo.innerText = ("Te quedaste sin intentos");
 }
