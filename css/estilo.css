@@ -3,8 +3,8 @@
 }
 
 body {
-	font-family: "Century Gothic", Verdana, sans-serif;
-	font-size: 20px;
+	font-family: "Lato", Verdana, sans-serif;
+	font-size: 1.4rem;
 	color: white;
 	text-align: center;
 	margin: 2% 10%;
@@ -23,8 +23,12 @@ body {
 
 .izquierda {
 	float: left;
-	width: 35%;
+	width: 36%;
 	height: 60%;
+}
+
+.izquierda p {
+	font-size:1rem;
 }
 
 .derecha {
@@ -52,8 +56,8 @@ body {
 }
 
 .destacado {
-	font-size: 200%;
-	background: #0b2528;
+	font-size: 120%;
+	background: #063360;
 	color: white;
 	text-align: center;
 	display: block;
@@ -84,5 +88,11 @@ body {
 }
 
 #botonAdivinar {
-	padding: 2% 5%;
+	padding: 1% 3%;
+	font-weight: bold;
+}
+
+.pie img {
+	display: inline-block;
+	width:20%;
 }

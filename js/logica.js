@@ -1,68 +1,66 @@
-var intentos;
-var numeroIngresado;
-var numeroSecreto;
+let intentos;
+let numeroIngresado;
+let numeroSecreto;
 
-var entrada = document.getElementById("entradaDelUsuario");
-var cuadroAzul = document.getElementById("resultado");
-var cuadroRojo = document.getElementById("contadorIntentos");
-var genio = document.getElementById("imagenGenio");
-var boton = document.getElementById("botonAdivinar");
+let entrada = document.getElementById("entradaDelUsuario");
+let cuadroAzul = document.getElementById("resultado");
+let cuadroRojo = document.getElementById("contadorIntentos");
+let genio = document.getElementById("imagenGenio");
+let boton = document.getElementById("botonAdivinar");
 
 intentos = 7;
-numeroSecreto = Math.floor( Math.random() * 100 ) + 1;
+numeroSecreto = Math.floor(Math.random() * 100) + 1;
 entrada.maxlength = 2;
 
-function adivinar ()
-{
+function procesar() {
 	genio.src = "img/desafio.png";
 	numeroIngresado = parseInt(entrada.value);
 	entrada.value = "";
 
-	if (intentos > 0) // LE QUEDAN INTENTOS
-	{
-		if ( isNaN( numeroIngresado ) ) // PUSO CUALQUIER COSA
-		{
+	if (intentos > 0) { // LE QUEDAN INTENTOS
+		if (isNaN(numeroIngresado)) { // PUSO CUALQUIER COSA
 			cuadroAzul.innerText = "Eso no es un número ¬¬";
-		}
-		else if (numeroSecreto == numeroIngresado)  // ADIVINO
-		{
-			boton.disabled = true;
-			entrada.disabled = true;
-			genio.src = "img/triste.png";
-			cuadroAzul.innerText = ("Me ganaste ! El numero era: " + numeroSecreto);
-			cuadroRojo.innerText = ("Adivinaste en " + (8-intentos) +" intentos.");
-		}
-		else // POR DESCARTE, NO ADIVINO
-		{
-			if (intentos == 1) 
-			{
+		} else if (numeroSecreto == numeroIngresado) { // ADIVINO
+			ganar();
+		} else { // POR DESCARTE, NO ADIVINO
+			if (intentos == 1) {
 				perder();
-			}
-			else
-			{
-				intentos = intentos - 1; // intentos--;
-				cuadroRojo.innerText = ("Te quedan " + intentos + " intentos");
-
-				if (numeroSecreto > numeroIngresado )
-				{
-					cuadroAzul.innerText = ("Te quedaste cortina, pensé un número más alto");
-				} 
-				else 
-				{
-					cuadroAzul.innerText = ("Te pasaste, pensé un número más bajo");
-				}
+			} else {
+				adivinar();
 			}
 		}
-	}
-	else // SE QUEDO SIN INTENTOS
-	{
+	} else { // SE QUEDO SIN INTENTOS
 		perder();
 	}
 }
 
-function perder()
-{
+function adivinar() {
+	intentos = intentos - 1;
+	cuadroRojo.innerText = ("Te queda" + (intentos != 1 ? "n " : " ") + intentos + " intento" + (intentos != 1 ? "s" : ""));
+	if (numeroSecreto > numeroIngresado) {
+		cuadroAzul.innerText = ("Nop, es un número más ALTO");
+	} else {
+		cuadroAzul.innerText = ("Nop, es un número más BAJO");
+	}
+}
+
+function ganar() {
+	boton.disabled = true;
+	entrada.disabled = true;
+	genio.src = "img/triste.png";
+	cuadroAzul.innerText = ("¡Me ganaste! El numero era: " + numeroSecreto);
+	cuadroRojo.innerText = ("Adivinaste en " + (8 - intentos) + " intentos.");
+}
+
+function perder() {
 	genio.src = "img/feliz.png";
-	cuadroAzul.innerText = ("Te gané ! El numero era: " + numeroSecreto);
+	cuadroAzul.innerText = ("¡Te gané! El numero era: " + numeroSecreto);
 	cuadroRojo.innerText = ("Te quedaste sin intentos");
 }
+
+entrada.addEventListener("keyup", (e) => {
+	e.preventDefault();
+	if (e.key === "Enter") {
+		procesar();
+	}
+});
