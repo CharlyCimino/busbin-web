@@ -71,6 +71,10 @@ body {
 	width: 12%;
 }
 
+.genio-container a {
+	color:rgb(192, 227, 255)
+}
+
 #genioImg {
 	display: block;
 	width: 100%;
