@@ -1,33 +1,45 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Adivina número</title>
 	<meta charset="utf-8">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
-	<link rel="icon" href="img/favicon.ico">  
+	<link rel="icon" href="img/favicon.ico">
 </head>
+
 <body>
 
-	<div class="caja izquierda">
-		<img id="imagenGenio" src="img/pensando.png">
-		<p>(Cambiar al genio. Este es Akinator)</p>
+	<div class="container">
+		<div class="genio-container">
+			<img id="genioImg" src="img/pensando.png">
+		</div>
+		<div class="hud-container">
+			<div class="globo-parent">
+				<p id="mensaje" class="globo iv izquierda-arriba">
+					Acabo de pensar un número al azar entre 1 y 100.<br><br>¿Serás capaz de adivinarlo en solo 7
+					intentos?
+				</p>
+			</div>
+
+			<div class="formu">
+				<input placeholder="xx" id="nroUsuario" size="2">
+				<br>
+				<button onclick="procesar()" id="arriesgarBtn">Arriesgar</button>
+			</div>
+			<div id="contIntentos">Te quedan 7 intentos</div>
+		</div>
+		<div class="cc">
+			<a href="https://github.com/CharlyCimino" target="_blank"><img src="img/cc-logo.png" alt=""></a>
+		</div>
 	</div>
 
-	<div class="caja derecha">
-		<div class="instrucciones">
-			<h1>Adiviná el número</h1>
-			<p>Acabo de pensar un número al azar entre 1 y 100.</p>
-			<p>¿Serás capaz de adivinarlo en 7 intentos o menos?</p>
-		</div>
-		<p class="destacado2" id="resultado">Esperando...</p>
-		<div class="interfaz">
-			<input class="destacado" id="entradaDelUsuario">
-			<br>
-			<button onclick="procesar()" class="destacado" id="botonAdivinar">ADIVINAR</button>
-		</div>
-		<p class="destacado3" id="contadorIntentos">Te quedan 7 intentos</p>
-	</div>
+	
 
-<script type="text/javascript" src="js/logica.js"></script>
+	<script type="text/javascript" src="js/logica.js"></script>
 </body>
+
 </html>
