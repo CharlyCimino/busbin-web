@@ -17,6 +17,8 @@
 		<div class="genio-container">
 			<img id="genioImg" src="img/pensando.png">
 			<p>Genio obtenido de <a href="https://es.akinator.com/" target="_blank">Akinator.com</a></p>
+			<input type="checkbox" id="checkboxAyuda" value="Prueba">
+			<label for="checkboxAyuda">Activar ayuda 💡</label>
 		</div>
 		<div class="hud-container">
 			<div class="globo-parent">
@@ -25,20 +27,23 @@
 					intentos?
 				</p>
 			</div>
-
 			<div class="formu">
-				<input placeholder="xx" id="nroUsuario" size="2">
+				<input placeholder="xx" id="nroUsuario" class="borde-turquesa" size="2">
 				<br>
-				<button onclick="procesar()" id="arriesgarBtn">Arriesgar</button>
+				<button onclick="procesar()" id="arriesgarBtn" class="borde-turquesa">Arriesgar</button>
 			</div>
 			<div id="contIntentos">Te quedan 7 intentos</div>
+			<div id="ayuda">
+				<p id="ayuda1"></p>
+				<p id="ayuda2"></p>
+			</div>
 		</div>
 		<div class="cc">
 			<a href="https://github.com/CharlyCimino" target="_blank"><img src="img/cc-logo.png" alt=""></a>
 		</div>
 	</div>
 
-	
+
 
 	<script type="text/javascript" src="js/logica.js"></script>
 </body>
