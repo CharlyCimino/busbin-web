@@ -11,6 +11,8 @@ let checkboxAyuda = document.getElementById("checkboxAyuda");
 let ayuda = document.getElementById("ayuda");
 let ayuda1Span = document.getElementById("ayuda1");
 let ayuda2Span = document.getElementById("ayuda2");
+let modal = document.getElementById("myModal");
+let cierreModal = document.getElementById("close");
 
 let min = 1;
 let max = 100;
@@ -120,4 +122,12 @@ checkboxAyuda.addEventListener("change", (e) => {
 	e.preventDefault();
 	console.log(e)
 	mostrar(ayuda, e.target.checked);
+});
+
+genioImg.addEventListener("click", (e) => {
+	mostrar(modal, true);
+});
+
+cierreModal.addEventListener("click", (e) => {
+	mostrar(modal, false);
 });
