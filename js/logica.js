@@ -3,7 +3,8 @@ let numeroIngresado;
 let numeroSecreto;
 
 let nroUsuario = document.getElementById("nroUsuario");
-let mensaje = document.getElementById("mensaje");
+let p1 = document.getElementById("p1");
+let p2 = document.getElementById("p2");
 let contIntentos = document.getElementById("contIntentos");
 let genioImg = document.getElementById("genioImg");
 let arriesgarBtn = document.getElementById("arriesgarBtn");
@@ -31,7 +32,8 @@ function procesar() {
 
 	if (intentos > 0) { // LE QUEDAN INTENTOS
 		if (isNaN(numeroIngresado)) { // PUSO CUALQUIER COSA
-			mensaje.innerText = "Eso no es un número 🙄";
+			p1.innerText = "Eso no es un número 🙄";
+			p2.innerText = "";
 			genioImg.src = "img/enojado.png";
 		} else if (numeroSecreto == numeroIngresado) { // ADIVINO
 			ganar();
@@ -54,10 +56,12 @@ function adivinar() {
 	else if (intentos == 2) contIntentos.style.color = "#f19d4a";
 	else if (intentos == 3) contIntentos.style.color = "#f1f14a";
 	if (numeroSecreto > numeroIngresado) {
-		mensaje.innerText = (`Arriesgaste ${numeroIngresado}\nNop, es un número más ALTO 🤭`);
+		p1.innerText = `Arriesgaste ${numeroIngresado}`
+		p2.innerText = "Nop, es un número más ALTO 🤭";
 		refreshAyuda(numeroIngresado + 1, max);
 	} else {
-		mensaje.innerText = (`Arriesgaste ${numeroIngresado}\nNop, es un número más BAJO 🤭`);
+		p1.innerText = `Arriesgaste ${numeroIngresado}`
+		p2.innerText = "Nop, es un número más BAJO 🤭";
 		refreshAyuda(min, numeroIngresado - 1);
 	}
 }
@@ -65,7 +69,8 @@ function adivinar() {
 function ganar() {
 	desactivarHUD();
 	genioImg.src = "img/triste.png";
-	mensaje.innerText = ("¡Me ganaste! 😢 El numero era: " + numeroSecreto);
+	p1.innerText = "¡Me ganaste! 😢";
+	p2.innerText = `El número era: ${numeroSecreto}`;
 	contIntentos.style.color = "#4af163";
 	let cuantos = (8 - intentos);
 	contIntentos.innerText = ("¡Adivinaste en " + cuantos + " intento" + checkPlural(cuantos) + "!");
@@ -74,7 +79,8 @@ function ganar() {
 function perder() {
 	desactivarHUD();
 	genioImg.src = "img/feliz.png";
-	mensaje.innerText = ("¡Te gané! 😁 El numero era " + numeroSecreto);
+	p1.innerText = "¡Te gané! 😁";
+	p2.innerText = `El número era ${numeroSecreto}`;
 	contIntentos.innerText = ("Te quedaste sin intentos");
 }
 

@@ -22,10 +22,10 @@
 		</div>
 		<div class="hud-container">
 			<div class="globo-parent">
-				<p id="mensaje" class="globo iv izquierda-arriba">
-					Acabo de pensar un número al azar entre 1 y 100.<br><br>¿Serás capaz de adivinarlo en solo 7
-					intentos?
-				</p>
+				<div id="mensaje" class="globo iv izquierda-arriba">
+					<p id="p1" class="parrafo">Acabo de pensar un número al azar entre 1 y 100.</p>
+					<p id="p2" class="parrafo">¿Serás capaz de adivinarlo en solo 7	intentos?</p>
+				</div>
 			</div>
 			<div class="formu">
 				<input placeholder="xx" id="nroUsuario" class="borde-turquesa" size="2">
@@ -33,9 +33,9 @@
 				<button onclick="procesar()" id="arriesgarBtn" class="borde-turquesa">Arriesgar</button>
 			</div>
 			<div id="contIntentos">Te quedan 7 intentos</div>
-			<div id="ayuda">
-				<p id="ayuda1"></p>
-				<p id="ayuda2"></p>
+			<div id="ayuda" class="ayuda">
+				<p id="ayuda1" class="parrafo"></p>
+				<p id="ayuda2" class="parrafo"></p>
 			</div>
 		</div>
 		<div class="cc">

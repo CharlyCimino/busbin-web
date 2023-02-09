@@ -6,7 +6,7 @@ body {
 	font-family: 'Merienda', cursive;
 	color: white;
 	text-align: center;
-	margin: 2% 10%;
+	margin: 3% 10%;
 	padding: 0;
 	background-image: url("../img/fondo.jpg");
 	background-size: cover;
@@ -15,7 +15,6 @@ body {
 
 .container {
 	padding: 2rem;
-	margin: 1%;
 	border-radius: 50px;
 	background-color: rgba(27, 35, 48, 0.92);
 	display: grid;
@@ -23,16 +22,18 @@ body {
 	justify-content: center;
 	align-content: center;
 	position: relative;
+	scale: 1;
 }
 
 .globo {
 	animation: float 6s ease-in-out infinite;
 	color: black;
-	font-size: 1.8rem;
+	font-size: 1.3rem;
+	margin-top: 0.4em;
 	text-transform: uppercase;
 	border-radius: var(--borde);
 	padding: var(--borde);
-	--borde: 1em;
+	--borde: 0.6em;
 	z-index: 1;
 	--globo-fondo: white;
 	background-color: var(--globo-fondo);
@@ -60,6 +61,7 @@ body {
 
 .formu {
 	padding: 1rem;
+	margin-top: 0.5em;
 }
 
 .cc img {
@@ -133,10 +135,14 @@ label[for="checkboxAyuda"] {
 	cursor: pointer;
 }
 
-#ayuda {
-	margin-top: 2rem;
-	font-size: 2rem;
+.ayuda {
+	margin-top: 1.5rem;
+	font-size: 1.5rem;
 	color: #FFD679;
+}
+
+.parrafo {
+	margin: 0.4em 0;
 }
 
 @keyframes wiggle {
@@ -217,3 +223,44 @@ label[for="checkboxAyuda"] {
 	text-decoration: none;
 	cursor: pointer;
   }
+
+
+@media (min-width: 1180px) { 
+	.container {
+		scale: 1.1;
+	}
+}
+
+@media (min-width: 1600px) { 
+	.globo {
+		font-size: 1.7rem;
+	}
+
+	.ayuda {
+		font-size: 1.7rem;
+	}
+}
+
+@media (min-width: 1800px) { 
+	.globo {
+		font-size: 2rem;
+	}
+
+	#contIntentos {
+		margin-top: 2rem;
+	}
+
+	#arriesgarBtn, #nroUsuario {
+		margin-top: 4rem;
+		scale: 1.2;
+	}
+
+	#nroUsuario {
+		margin-top: 1.5rem;
+	}
+
+	.ayuda {
+		margin-top: 2rem;
+		font-size: 2.5rem;
+	}
+}
